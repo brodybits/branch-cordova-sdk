@@ -2,6 +2,7 @@
   // properties
 
   const path = require("path");
+  const xcode = require("xcode");
   const xmlHelper = require("../lib/xmlHelper.js");
 
   // entry
@@ -156,7 +157,7 @@
       .sync(path.join(projectPath, "*.xcodeproj", "project.pbxproj"));
     if (projectFiles.length === 0) return;
     const pbxPath = projectFiles[0];
-    const xcodeproj = context.requireCordovaModule("xcode").project(pbxPath);
+    const xcodeproj = xcode.project(pbxPath);
 
     // add hash
     xcodeproj.parseSync();
